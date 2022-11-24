@@ -14,7 +14,9 @@ from .base import env
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["explicitonlinetutorials.com"])
+ALLOWED_HOSTS = env.list(
+    "DJANGO_ALLOWED_HOSTS", default=["explicitonlinetutorials.com"]
+)
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -95,7 +97,9 @@ aws_s3_domain = AWS_S3_CUSTOM_DOMAIN or f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # MEDIA
 # ------------------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = "explicit_online_tutorials.utils.storages.MediaRootS3Boto3Storage"
+DEFAULT_FILE_STORAGE = (
+    "explicit_online_tutorials.utils.storages.MediaRootS3Boto3Storage"
+)
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
 
 # EMAIL
